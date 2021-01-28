@@ -1,0 +1,55 @@
+<div class="container">
+    <div class="columns">
+        <div class="column is-8 is-offset-2">
+            <form action="" novalidate autocomplete="off" (submit)="onSubmit($event)" [formGroup]="colorForm">
+                <div class="field">
+                    <div class="control">
+                        <span class="tag is-light"><h5 class="title is-5">Seleccionar color :</h5></span>
+                        <input type="color" formControlName="color" [class.is-danger]="colorForm.controls.color.invalid" id="favcolor" name="favcolor" value="">
+                        <p class="help is-danger" *ngIf="colorForm.controls.color.invalid">
+                            El color es requerido, seleccionar un color
+                        </p>
+                    </div>
+                </div>
+                <div class="field">
+                    <div class="control">
+                        <input class="input" [class.is-danger]="colorForm.controls.name.invalid && colorForm.controls.name.touched" formControlName="name" type="text" placeholder="Nombre del color" />
+                        <p class="help is-danger" *ngIf="colorForm.controls.name.invalid && colorForm.controls.name.touched">
+                            El nombre es requerido, debe contener al menos 6 caracteres
+                        </p>
+                    </div>
+                </div>
+
+                <div class="field">
+                    <div class="control">
+                        <input class="input" [class.is-danger]="colorForm.controls.pantone.invalid && colorForm.controls.pantone.touched" formControlName="pantone" type="text" placeholder="Pantone: ej. 13-1107" />
+                        <p class="help is-danger" *ngIf="colorForm.controls.pantone.invalid && colorForm.controls.pantone.touched">
+                            El pantone es requerido
+                        </p>
+                    </div>
+                </div>
+                <div class="field">
+                    <div class="control">
+                        <span class="tag is-light"><h5 class="title is-5">ingresar año de 1990 a 2021 :</h5></span>
+                    </div>
+                </div>
+                <div class="field">
+                    <div class="control">
+                        <input class="input" [class.is-danger]="colorForm.controls.year.invalid && colorForm.controls.year.touched" formControlName="year" type="number" placeholder="Año: ej. 2021" />
+                        <p class="help is-danger" *ngIf="colorForm.controls.year.invalid && colorForm.controls.year.touched">
+                            El año debe estar en el rango de 1990 a 2021
+                        </p>
+                    </div>
+                </div>
+                <div class="field is-grouped is-grouped-centered">
+                    <p class="control">
+                        <button type="button" class="button" (click)="onBack()">Regresar</button>
+                    </p>
+                    <p class="control">
+                        <button type="submit" class="button is-dark" [class.is-loading]="isLoading" [disabled]="colorForm.invalid">Guardar</button>
+                    </p>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
