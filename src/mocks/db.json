@@ -4,7 +4,8 @@
         "name": "Jose Luis",
         "surname": "Garcia Aranda",
         "email": "joga.sistemas@gmail.com",
-        "password": "hola1234"
+        "password": "hola1234",
+        "profile": "Administrador"
     }],
     "colores": [{
             "name": "Melon rojizo",
