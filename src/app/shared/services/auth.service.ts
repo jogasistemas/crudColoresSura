@@ -20,12 +20,12 @@ export class AuthService {
 
   login(email: string, password: string) {
     return this.userService.getUserByEmail(email)
-      .pipe(map((users: User[]) => {
-        if (users.length) {
-          const [ user ] = users;
+      .pipe(map((user: User) => {
+        if (user) {
+          const  constUser  = user;
           if (user.password === password) {
-            sessionStorage.setItem('currentUser', JSON.stringify(user));
-            this.currentUserSubject.next(user);
+            sessionStorage.setItem('currentUser', JSON.stringify(constUser));
+            this.currentUserSubject.next(constUser);
             return { success: true };
           }
         }
