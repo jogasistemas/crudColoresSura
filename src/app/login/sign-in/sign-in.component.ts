@@ -30,10 +30,11 @@ export class SignInComponent implements OnInit {
     const { email, password } = this.model;
     this.isLoading = true;
 
-    this.authService.login(email, password).subscribe(response => {
+    this.authService.login(email, password).subscribe((response: User)=> {
       this.isLoading = false;
-      if (response.success) {
+      if (response.token) {
         this.router.navigate(['/admin']);
+        localStorage.setItem('token', response.token);
       } else {
         this.error = 'Usuario y/o contraseña son erroneas.';
         this.hideError();

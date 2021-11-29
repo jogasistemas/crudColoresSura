@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { ExchangesComponent } from './exchanges/exchanges.component';
+import { ExchangeNewComponent } from './exchange-new/exchange-new.component';
+import { ExchangeEditComponent } from './exchange-edit/exchange-edit.component';
 import { AdminComponent } from './admin.component';
-import { ColorNewComponent } from './color-new/color-new.component';
-import { ColorsComponent } from './colors/colors.component';
-import { ColorEditComponent } from './color-edit/color-edit.component';
 
 const routes: Routes = [
   {
@@ -11,23 +11,22 @@ const routes: Routes = [
     component: AdminComponent,
     children: [
       {
-        path: 'colors/new',
-        component: ColorNewComponent
+        path: 'exchanges',
+        component: ExchangesComponent
       },
       {
-        path: 'colors/:id',
-        component: ColorEditComponent
+        path: 'exchange',
+        component: ExchangeNewComponent
       },
       {
-        path: 'colors',
-        component: ColorsComponent
+        path: 'exchange/:id',
+        component: ExchangeEditComponent
       },
       {
         path: '',
-        redirectTo: 'colors',
+        redirectTo: 'exchanges',
         pathMatch: 'full'
       }
-
     ]
   }
 

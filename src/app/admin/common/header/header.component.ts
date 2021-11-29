@@ -7,16 +7,10 @@ import { User } from 'src/app/models/user.model';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-  @Input() user: User;
-  @Output() logout: EventEmitter<boolean> = new EventEmitter<boolean>();
 
   constructor() { }
 
   ngOnInit() {
-  }
-
-  onClick() {
-    this.logout.emit(true);
   }
 
 }

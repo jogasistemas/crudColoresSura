@@ -7,15 +7,15 @@ import { environment } from '../../../environments/environment';
   providedIn: 'root'
 })
 export class UserService {
-  readonly API = 'users';
+  readonly API = 'use/api/token/user';
   readonly BASE_URL = environment.baseUrl;
 
   constructor(private http: HttpClient) {}
 
-  getUserByEmail(email: string) {
-    const url = `${this.BASE_URL}/${this.API}/?email=${email}`;
+  getUser(username: string, password: string) {
+    const url = `${this.BASE_URL}/${this.API}/?username=${username}&password=${password}`;
 
-    return this.http.get(url);
+    return this.http.post(url,'');
   }
 
 }

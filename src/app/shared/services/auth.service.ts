@@ -18,20 +18,8 @@ export class AuthService {
     return this.currentUserSubject.value;
   }
 
-  login(email: string, password: string) {
-    return this.userService.getUserByEmail(email)
-      .pipe(map((user: User) => {
-        if (user) {
-          const  constUser  = user;
-          if (user.password === password) {
-            sessionStorage.setItem('currentUser', JSON.stringify(constUser));
-            this.currentUserSubject.next(constUser);
-            return { success: true };
-          }
-        }
-
-        return { success: false };
-      }));
+  login(username: string, password: string) {
+    return this.userService.getUser(username,password);
   }
 
   logout() {
